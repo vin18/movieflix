@@ -25,7 +25,7 @@ function Open({ children, opens: opensWindowName }) {
   return cloneElement(children, { onClick: () => openModal(opensWindowName) });
 }
 
-function Content({ children, name }) {
+function Content({ children, name, title }) {
   const { openName, closeModal } = useContext(ModalContext);
   const ref = useOutsideClick(closeModal);
 
@@ -33,15 +33,18 @@ function Content({ children, name }) {
 
   return createPortal(
     <div className="modal-wrapper" ref={ref}>
-      <div className="modal-header">
-        <div className="modal-close">
+      <div className="flex items-center justify-between mb-4">
+        <div>
+          <h1 className="text-xl font-bold">{title}</h1>
+        </div>
+        <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-6 h-6"
+            className="w-5 h-5 cursor-pointer"
             onClick={closeModal}
           >
             <path
@@ -75,6 +78,7 @@ Open.propTypes = {
 Content.propTypes = {
   children: PropTypes.node,
   name: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default Modal;

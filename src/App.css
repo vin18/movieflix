@@ -3,26 +3,17 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  max-width: 500px;
+  max-width: 400px;
   width: 100%;
-  padding: 10px;
+  padding: 20px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.modal-close {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  line-height: 32px;
-  font-size: 1.2em;
-  cursor: pointer;
-  margin-left: auto;
 }
 
 .modal-overlay {

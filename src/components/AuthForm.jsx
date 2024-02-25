@@ -1,5 +1,8 @@
 import PropTypes from "prop-types";
 
+import Input from "./Input";
+import Button from "./Button";
+
 function AuthForm({ buttonText, onSubmit }) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -10,19 +13,14 @@ function AuthForm({ buttonText, onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="username">Username</label>
-        <input type="text" id="username" />
-      </div>
-
-      <div>
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" />
-      </div>
-
-      <div>
-        <button type="submit">{buttonText}</button>
-      </div>
+      <Input className="mb-4" label="Username" name="username" />
+      <Input
+        className="mb-4"
+        label="Password"
+        name="password"
+        type="password"
+      />
+      <Button>{buttonText}</Button>
     </form>
   );
 }

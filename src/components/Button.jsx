@@ -10,17 +10,24 @@ const ButtonVariants = {
     "border border-gray-300 text-gray-700 bg-white hover:bg-gray-300 focus:outline-none focus:ring-offset-2 focus:ring-brand-500",
 };
 
-function Button({ variant = "primary", children, loading = false, className }) {
+function Button({
+  variant = "primary",
+  children,
+  onClick,
+  loading = false,
+  className,
+}) {
   const variantStyles = ButtonVariants[variant];
 
   return (
     <button
-      type="button"
+      type="submit"
       className={clsx(
-        "relative inline-flex items-center rounded-md border border-transparent  px-4 py-2 text-sm font-medium text-white shadow-sm focus:outline-none focus:ring-2  focus:ring-offset-2",
+        "relative inline-flex items-center rounded border border-transparent  px-6 py-2 text-sm font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2",
         variantStyles,
         className
       )}
+      onClick={onClick}
     >
       {children}
       {loading && (
@@ -42,6 +49,7 @@ Button.propTypes = {
   children: PropTypes.node,
   loading: PropTypes.bool,
   className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default Button;
