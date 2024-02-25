@@ -1,6 +1,7 @@
 import Logo from "./components/Logo";
 import Modal from "./components/Modal";
 import AuthForm from "./components/AuthForm";
+import Button from "./components/Button";
 
 import "./App.css";
 
@@ -17,9 +18,10 @@ function App() {
     <>
       <Logo width="70px" height="70px" />
       <h1>MovieFlix</h1>
+
       <Modal>
         <Modal.Open opens="login">
-          <button>Login</button>
+          <Button>Login</Button>
         </Modal.Open>
         <Modal.Content name="login">
           <AuthForm onSubmit={login} buttonText="Login" />
@@ -28,7 +30,7 @@ function App() {
 
       <Modal>
         <Modal.Open opens="register">
-          <button>Register</button>
+          <Button variant="white">Register</Button>
         </Modal.Open>
 
         <Modal.Content name="register">
